@@ -15,40 +15,47 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Index from "views/Index.js";
-import Users from "views/users/Users";
-import Register from "views/Register.js";
-import Login from "views/Login.js";
+import Index from 'views/Index.js';
+import Register from 'views/Register.js';
+import Login from 'views/Login.js';
+import Products from 'views/users/Products';
+import News from 'views/news/News';
 
 var routes = [
+  // {
+  //   path: '/index',
+  //   name: 'Dashboard',
+  //   icon: 'ni ni-tv-2 text-red',
+  //   component: Index,
+  //   layout: '/admin',
+  // },
   {
-    path: "/index",
-    name: "Dashboard",
-    icon: "ni ni-tv-2 text-red",
-    component: Index,
-    layout: "/admin",
+    path: '/products',
+    name: 'All Products',
+    icon: 'ni ni-single-02 text-primary',
+    component: Products,
+    layout: '/admin',
   },
   {
-    path: "/users",
-    name: "All Users",
-    icon: "ni ni-single-02 text-primary",
-    component: Users,
-    layout: "/admin",
+    path: '/news',
+    name: 'All News',
+    icon: 'ni ni-single-02 text-primary',
+    component: News,
+    layout: '/admin',
   },
-
   {
-    path: "/register",
-    name: "Register",
-    icon: "ni ni-key-25 text-info",
+    path: '/register',
+    name: 'Register',
+    icon: 'ni ni-key-25 text-info',
     component: Register,
-    layout: "/auth",
+    layout: '/auth',
   },
   {
-    path: "/login",
-    name: "Login",
-    icon: "ni ni-circle-08 text-pink",
+    path: '/login',
+    name: 'Login',
+    icon: 'ni ni-circle-08 text-pink',
     component: Login,
-    layout: "/auth",
+    layout: '/auth',
   },
 ];
 export default routes;

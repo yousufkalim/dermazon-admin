@@ -17,8 +17,8 @@
 */
 
 // reactstrap components
-import { useState } from "react";
-import api from "api";
+import { useState } from 'react';
+import api from 'api';
 import {
   Button,
   Card,
@@ -32,7 +32,7 @@ import {
   InputGroup,
   Row,
   Col,
-} from "reactstrap";
+} from 'reactstrap';
 
 const Login = () => {
   let [user, setUser] = useState({});
@@ -42,73 +42,61 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    api("post", "/admins/login", user).then((res) => {
-      localStorage.setItem("token", res.token);
-      window.location = "/admin/index";
+    api('post', '/admins/login', user).then((res) => {
+      localStorage.setItem('token', res.token);
+      window.location = '/admin/products';
     });
   };
 
   return (
     <>
-      <Col lg="5" md="7">
-        <Card className="bg-secondary shadow border-0">
-          <CardBody className="px-lg-5 py-lg-5">
-            <div className="text-center text-muted mb-4">
+      <Col lg='5' md='7'>
+        <Card className='bg-secondary shadow border-0'>
+          <CardBody className='px-lg-5 py-lg-5'>
+            <div className='text-center text-muted mb-4'>
               <small>Sign In</small>
             </div>
-            <Form role="form">
-              <FormGroup className="mb-3">
-                <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
+            <Form role='form'>
+              <FormGroup className='mb-3'>
+                <InputGroup className='input-group-alternative'>
+                  <InputGroupAddon addonType='prepend'>
                     <InputGroupText>
-                      <i className="ni ni-email-83" />
+                      <i className='ni ni-email-83' />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
-                    placeholder="Email"
-                    type="email"
-                    name="email"
-                    autoComplete="new-email"
+                    placeholder='Email'
+                    type='email'
+                    name='email'
+                    autoComplete='new-email'
                     onChange={handleInput}
                   />
                 </InputGroup>
               </FormGroup>
               <FormGroup>
-                <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
+                <InputGroup className='input-group-alternative'>
+                  <InputGroupAddon addonType='prepend'>
                     <InputGroupText>
-                      <i className="ni ni-lock-circle-open" />
+                      <i className='ni ni-lock-circle-open' />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    autoComplete="new-password"
+                    placeholder='Password'
+                    type='password'
+                    name='password'
+                    autoComplete='new-password'
                     onChange={handleInput}
                   />
                 </InputGroup>
               </FormGroup>
-              <div className="custom-control custom-control-alternative custom-checkbox">
-                <input
-                  className="custom-control-input"
-                  id=" customCheckLogin"
-                  type="checkbox"
-                />
-                <label
-                  className="custom-control-label"
-                  htmlFor=" customCheckLogin"
-                >
-                  <span className="text-muted">Remember me</span>
+              <div className='custom-control custom-control-alternative custom-checkbox'>
+                <input className='custom-control-input' id=' customCheckLogin' type='checkbox' />
+                <label className='custom-control-label' htmlFor=' customCheckLogin'>
+                  <span className='text-muted'>Remember me</span>
                 </label>
               </div>
-              <div className="text-center">
-                <Button
-                  className="my-4"
-                  color="primary"
-                  type="button"
-                  onClick={handleSubmit}
-                >
+              <div className='text-center'>
+                <Button className='my-4' color='primary' type='button' onClick={handleSubmit}>
                   Sign in
                 </Button>
               </div>
