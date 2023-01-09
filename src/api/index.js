@@ -5,6 +5,7 @@ import { baseUrl } from '../config';
 
 const api = async (method = 'get', uri, body) => {
   // API Call
+
   const url = baseUrl + uri;
   const token = localStorage.getItem('token');
   axios.defaults.headers = {
