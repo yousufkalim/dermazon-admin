@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
-import api from '../../api';
+import { useState } from "react";
+import { toast } from "react-toastify";
+import api from "../../api";
 import {
   Modal,
   ModalBody,
@@ -12,9 +12,9 @@ import {
   Input,
   Row,
   Col,
-} from 'reactstrap';
-import { Radio } from 'antd';
-import FilePicker from 'components/FilePicker/FilePicker';
+} from "reactstrap";
+import { Radio } from "antd";
+import FilePicker from "components/FilePicker/FilePicker";
 // core components
 
 const convertBase64 = (file) => {
@@ -22,7 +22,7 @@ const convertBase64 = (file) => {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     fileReader.onload = () => {
-      resolve(fileReader.result.replace(/^.*,/, ''));
+      resolve(fileReader.result.replace(/^.*,/, ""));
     };
     fileReader.onerror = (error) => {
       reject(error);
@@ -32,12 +32,12 @@ const convertBase64 = (file) => {
 
 const AddUser = ({ openModal, handleModal, getUsers }) => {
   let [product, setProduct] = useState({
-    name: '',
-    price: '',
-    description: '',
+    name: "",
+    price: "",
+    description: "",
     availability: true,
-    technical_description: '',
-    brand: '',
+    technical_description: "",
+    brand: "",
     images: [],
   });
   const [filenames, setFilenames] = useState([]);
@@ -58,34 +58,34 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (product.name === '') {
+    if (product.name === "") {
       return toast.error("Please enter products's name");
     }
 
-    if (product.price === '') {
-      return toast.error('Please enter price');
+    if (product.price === "") {
+      return toast.error("Please enter price");
     }
-    if (product.availability === '') {
-      return toast.error('Availability is required');
+    if (product.availability === "") {
+      return toast.error("Availability is required");
     }
-    if (product.brand === '') {
-      return toast.error('Brand is required');
-    }
+    // if (product.brand === '') {
+    //   return toast.error('Brand is required');
+    // }
 
     let formData = new FormData();
 
     for (let key in product) {
-      if (key === 'images') {
+      if (key === "images") {
         for (let i = 0; i < Object.keys(product.images).length; i++) {
-          formData.append('images', product.images[i]);
+          formData.append("images", product.images[i]);
         }
       } else {
         formData.append(key, product[key]);
       }
     }
 
-    api('post', '/products', formData).then((res) => {
-      toast.success('Product added successfully');
+    api("post", "/products", formData).then((res) => {
+      toast.success("Product added successfully");
       getUsers();
       handleModal();
     });
@@ -111,80 +111,89 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
 
   return (
     <>
-      <Modal isOpen={openModal} size='xl' centered>
-        <ModalHeader charCode='X' toggle={handleModal}>
+      <Modal isOpen={openModal} size="xl" centered>
+        <ModalHeader charCode="X" toggle={handleModal}>
           Add a product
         </ModalHeader>
         <ModalBody>
           <Row>
             <Col>
               <Form>
-                <div className='pl-lg-4'>
+                <div className="pl-lg-4">
                   <Row>
-                    <Col lg='6' style={{ margin: 'auto' }}>
+                    <Col lg="6" style={{ margin: "auto" }}>
                       <FormGroup>
-                        <label className='form-control-label'>
-                          {' '}
-                          <span style={{ color: 'red' }}>{product.name ? '' : '*'} </span>
+                        <label className="form-control-label">
+                          {" "}
+                          <span style={{ color: "red" }}>
+                            {product.name ? "" : "*"}{" "}
+                          </span>
                           Name
-                        </label>{' '}
+                        </label>{" "}
                         <Input
-                          className='form-control-alternative text-default'
+                          className="form-control-alternative text-default"
                           required={true}
                           placeholder="Enter product's name here"
-                          type='text'
+                          type="text"
                           value={product.name}
-                          name='name'
+                          name="name"
                           onChange={handleInput}
                         />
                       </FormGroup>
                     </Col>
-                    <Col lg='6' style={{ margin: 'auto' }}>
+                    <Col lg="6" style={{ margin: "auto" }}>
                       <FormGroup>
-                        <label className='form-control-label'>
-                          {' '}
-                          <span style={{ color: 'red' }}>{product.price ? '' : '*'} </span>
+                        <label className="form-control-label">
+                          {" "}
+                          <span style={{ color: "red" }}>
+                            {product.price ? "" : "*"}{" "}
+                          </span>
                           Price
-                        </label>{' '}
+                        </label>{" "}
                         <Input
-                          className='form-control-alternative text-default'
+                          className="form-control-alternative text-default"
                           required={true}
-                          placeholder='Enter product price'
-                          type='number'
+                          placeholder="Enter product price"
+                          type="number"
                           value={product.email}
-                          name='price'
+                          name="price"
                           onChange={handleInput}
                         />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
-                    <Col lg='6' style={{ margin: 'auto' }}>
+                    <Col lg="6" style={{ margin: "auto" }}>
                       <FormGroup>
-                        <label className='form-control-label'>
-                          {' '}
-                          <span style={{ color: 'red' }}>{product.brand ? '' : '*'} </span> Brand
+                        <label className="form-control-label">
+                          {" "}
+                          <span style={{ color: "red" }}>
+                            {product.brand ? "" : "*"}{" "}
+                          </span>{" "}
+                          Brand
                         </label>
                         <Input
-                          className='form-control-alternative text-default'
+                          className="form-control-alternative text-default"
                           required={true}
-                          placeholder='Enter brand here'
-                          type='text'
+                          placeholder="Enter brand here"
+                          type="text"
                           value={product.brand}
-                          name='brand'
+                          name="brand"
                           onChange={handleInput}
                         />
                       </FormGroup>
                     </Col>
-                    <Col lg='6' style={{ margin: 'auto' }}>
+                    <Col lg="6" style={{ margin: "auto" }}>
                       <FormGroup>
-                        <label className='form-control-label'>
-                          <span style={{ color: 'red' }}>{product.availability ? '' : '*'} </span>
+                        <label className="form-control-label">
+                          <span style={{ color: "red" }}>
+                            {product.availability ? "" : "*"}{" "}
+                          </span>
                           Availability
                         </label>
                         <div>
                           <Radio.Group
-                            name='availability'
+                            name="availability"
                             onChange={handleInput}
                             value={product.availability}
                           >
@@ -198,32 +207,37 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                   <Row>
                     <Col lg={12}>
                       <FormGroup>
-                        <label className='form-control-label' htmlFor='input-password'>
+                        <label
+                          className="form-control-label"
+                          htmlFor="input-password"
+                        >
                           Description
                         </label>
                         <Input
-                          className='form-control-alternative'
-                          id='input-password'
-                          placeholder='Description'
-                          type='text'
+                          className="form-control-alternative"
+                          id="input-password"
+                          placeholder="Description"
+                          type="text"
                           value={product.description}
-                          name='description'
+                          name="description"
                           onChange={handleInput}
                         />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
-                    <Col lg='12' style={{ margin: 'auto' }}>
+                    <Col lg="12" style={{ margin: "auto" }}>
                       <FormGroup>
-                        <label className='form-control-label'>Technical Description</label>
+                        <label className="form-control-label">
+                          Technical Description
+                        </label>
                         <Input
-                          className='form-control-alternative text-default'
+                          className="form-control-alternative text-default"
                           required={true}
                           placeholder="Enter user's address here"
-                          type='text'
+                          type="text"
                           value={product.technical_description}
-                          name='technical_description'
+                          name="technical_description"
                           onChange={handleInput}
                         />
                       </FormGroup>
@@ -233,12 +247,12 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                     <Col lg={12}>
                       <FilePicker
                         fileName={filenames}
-                        accept='image/*'
+                        accept="image/*"
                         isDelete={true}
                         handleDelete={handleDelete}
                         isMultiple={true}
                         multiple={true}
-                        type='file'
+                        type="file"
                         onChange={handleFile}
                       />
                     </Col>
@@ -249,7 +263,7 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
           </Row>
         </ModalBody>
         <ModalFooter>
-          <Button color='primary' onClick={handleSubmit}>
+          <Button color="primary" onClick={handleSubmit}>
             Save
           </Button>
 
