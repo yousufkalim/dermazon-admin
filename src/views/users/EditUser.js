@@ -127,7 +127,7 @@ const EditUser = ({ openModal, handleModal, user, setUser, getUsers, filenames, 
                           className='form-control-alternative text-default'
                           required={true}
                           placeholder="Enter product's price here"
-                          type='number'
+                          type='text'
                           value={user.price}
                           name='price'
                           onChange={handleInput}
@@ -163,7 +163,7 @@ const EditUser = ({ openModal, handleModal, user, setUser, getUsers, filenames, 
                             value={user.availability}
                           >
                             <Radio value={true}>Yes</Radio>
-                            <Radio value={false}>No</Radio>
+                            <Radio value={false}>Sold</Radio>
                           </Radio.Group>
                         </div>
                       </FormGroup>
@@ -178,8 +178,8 @@ const EditUser = ({ openModal, handleModal, user, setUser, getUsers, filenames, 
                         <Input
                           className='form-control-alternative'
                           id='input-password'
-                          placeholder='Description'
-                          type='text'
+                          placeholder='Enter description here'
+                          type='textarea'
                           value={user.description}
                           name='description'
                           onChange={handleInput}
@@ -195,9 +195,9 @@ const EditUser = ({ openModal, handleModal, user, setUser, getUsers, filenames, 
                           className='form-control-alternative text-default'
                           required={true}
                           placeholder='Enter technical description here'
-                          type='text'
+                          type='textarea'
                           value={user.technical_description}
-                          name='address'
+                          name='technical_description'
                           onChange={handleInput}
                         />
                       </FormGroup>

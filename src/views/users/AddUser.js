@@ -150,7 +150,7 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                           className='form-control-alternative text-default'
                           required={true}
                           placeholder='Enter product price'
-                          type='number'
+                          type='text'
                           value={product.email}
                           name='price'
                           onChange={handleInput}
@@ -189,7 +189,7 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                             value={product.availability}
                           >
                             <Radio value={true}>Yes</Radio>
-                            <Radio value={false}>No</Radio>
+                            <Radio value={false}>Sold</Radio>
                           </Radio.Group>
                         </div>
                       </FormGroup>
@@ -204,8 +204,8 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                         <Input
                           className='form-control-alternative'
                           id='input-password'
-                          placeholder='Description'
-                          type='text'
+                          placeholder='Enter description here'
+                          type='textarea'
                           value={product.description}
                           name='description'
                           onChange={handleInput}
@@ -220,8 +220,8 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                         <Input
                           className='form-control-alternative text-default'
                           required={true}
-                          placeholder="Enter user's address here"
-                          type='text'
+                          placeholder='Enter technical description here'
+                          type='textarea'
                           value={product.technical_description}
                           name='technical_description'
                           onChange={handleInput}
