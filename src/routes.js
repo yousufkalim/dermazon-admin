@@ -18,7 +18,7 @@
 import Index from 'views/Index.js';
 import Register from 'views/Register.js';
 import Login from 'views/Login.js';
-import Products from 'views/products/Products';
+import Products from 'views/users/Products';
 import News from 'views/news/News';
 
 var routes = [
