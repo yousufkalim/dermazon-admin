@@ -15,11 +15,11 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Index from 'views/Index.js';
 import Register from 'views/Register.js';
 import Login from 'views/Login.js';
 import Products from 'views/users/Products';
 import News from 'views/news/News';
+import Comments from 'views/comments/Comments';
 
 var routes = [
   // {
@@ -41,6 +41,13 @@ var routes = [
     name: 'All News',
     icon: 'ni ni-single-02 text-primary',
     component: News,
+    layout: '/admin',
+  },
+  {
+    path: '/comments',
+    name: 'All Comments',
+    icon: 'ni ni-single-02 text-primary',
+    component: Comments,
     layout: '/admin',
   },
   {
