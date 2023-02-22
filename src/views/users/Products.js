@@ -52,8 +52,10 @@ const Products = () => {
     price: '',
     availability: null,
     description: '',
+    frenchDescription:'',
     brand: '',
     technical_description: '',
+    frenchTechnicalDescription:'',
     images: [],
     oldImages: [],
   });
@@ -88,8 +90,10 @@ const Products = () => {
         price: item.price,
         availability: item.availability,
         description: item.description,
+        frenchDescription:item.frenchDescription,
         brand: item.brand,
         technical_description: item.technical_description,
+        frenchTechnicalDescription:item.frenchTechnicalDescription,
         images: [],
         oldImages: names,
       });

@@ -35,8 +35,10 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
     name: '',
     price: '',
     description: '',
+    frenchDescription:'',
     availability: true,
     technical_description: '',
+    frenchTechnicalDescription:'',
     brand: '',
     images: [],
   });
@@ -213,6 +215,24 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                       </FormGroup>
                     </Col>
                   </Row>
+                     <Row>
+                    <Col lg={12}>
+                      <FormGroup>
+                        <label className='form-control-label' htmlFor='input-password'>
+                          Description in French
+                        </label>
+                        <Input
+                          className='form-control-alternative'
+                          id='input-password'
+                          placeholder='Enter description in french here'
+                          type='textarea'
+                          value={product.frenchDescription}
+                          name='frenchDescription'
+                          onChange={handleInput}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
                   <Row>
                     <Col lg='12' style={{ margin: 'auto' }}>
                       <FormGroup>
@@ -224,6 +244,22 @@ const AddUser = ({ openModal, handleModal, getUsers }) => {
                           type='textarea'
                           value={product.technical_description}
                           name='technical_description'
+                          onChange={handleInput}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                   <Row>
+                    <Col lg='12' style={{ margin: 'auto' }}>
+                      <FormGroup>
+                        <label className='form-control-label'>Technical Description in French</label>
+                        <Input
+                          className='form-control-alternative text-default'
+                          required={true}
+                          placeholder='Enter technical description in french here'
+                          type='textarea'
+                          value={product.frenchTechnicalDescription}
+                          name='frenchTechnicalDescription'
                           onChange={handleInput}
                         />
                       </FormGroup>
